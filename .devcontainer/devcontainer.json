@@ -1,0 +1,13 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/python
+{
+	"name": "printful-mcp-bridge",
+	"build": { 
+		"context": "..",
+		"dockerfile": "Dockerfile" 
+	},
+	"forwardPorts": [8000],
+	"features": { "ghcr.io/devcontainers/features/azure-cli:1": {} },
+	"runArgs": ["--env-file", ".env.dev"],
+	"postCreateCommand": ""
+  }

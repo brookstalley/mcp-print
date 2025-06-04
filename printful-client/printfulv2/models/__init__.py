@@ -1,0 +1,881 @@
+"""Contains all the data models used in inputs/outputs"""
+
+from .add_file_response_400 import AddFileResponse400
+from .add_file_response_400_error import AddFileResponse400Error
+from .add_file_response_404 import AddFileResponse404
+from .add_file_response_404_error import AddFileResponse404Error
+from .address import Address
+from .address_readonly import AddressReadonly
+from .approval_sheet import ApprovalSheet
+from .approval_sheet_approval_sheet_links import ApprovalSheetApprovalSheetLinks
+from .approval_sheet_approval_sheet_links_order import ApprovalSheetApprovalSheetLinksOrder
+from .approval_sheet_approval_sheet_links_order_item import ApprovalSheetApprovalSheetLinksOrderItem
+from .approval_sheet_status import ApprovalSheetStatus
+from .approval_sheet_webhook_file import ApprovalSheetWebhookFile
+from .average_fulfillment_time import AverageFulfillmentTime
+from .base_mockup_product import BaseMockupProduct
+from .calculate_shpping_rates_response_400 import CalculateShppingRatesResponse400
+from .calculate_shpping_rates_response_400_error import CalculateShppingRatesResponse400Error
+from .calculation_status import CalculationStatus
+from .catalog_item_source import CatalogItemSource
+from .catalog_item_summary import CatalogItemSummary
+from .catalog_item_summary_links import CatalogItemSummaryLinks
+from .catalog_item_summary_links_self import CatalogItemSummaryLinksSelf
+from .catalog_item_summary_source import CatalogItemSummarySource
+from .catalog_item_summary_type import CatalogItemSummaryType
+from .catalog_stock_updated_event_configuration import CatalogStockUpdatedEventConfiguration
+from .category import Category
+from .category_links import CategoryLinks
+from .confirm_order_response_200 import ConfirmOrderResponse200
+from .confirm_order_response_200_links import ConfirmOrderResponse200Links
+from .confirm_order_response_401 import ConfirmOrderResponse401
+from .confirm_order_response_401_error import ConfirmOrderResponse401Error
+from .costs import Costs
+from .costs_by_amount_item import CostsByAmountItem
+from .costs_by_product_item import CostsByProductItem
+from .costs_by_variant_item import CostsByVariantItem
+from .country import Country
+from .create_item_by_order_id_response_400 import CreateItemByOrderIdResponse400
+from .create_item_by_order_id_response_400_error import CreateItemByOrderIdResponse400Error
+from .create_item_by_order_id_response_401 import CreateItemByOrderIdResponse401
+from .create_item_by_order_id_response_401_error import CreateItemByOrderIdResponse401Error
+from .create_item_by_order_id_response_403 import CreateItemByOrderIdResponse403
+from .create_item_by_order_id_response_403_error import CreateItemByOrderIdResponse403Error
+from .create_item_by_order_id_response_404 import CreateItemByOrderIdResponse404
+from .create_item_by_order_id_response_404_error import CreateItemByOrderIdResponse404Error
+from .create_mockup_generator_tasks_response_200 import CreateMockupGeneratorTasksResponse200
+from .create_mockup_generator_tasks_response_200_links import CreateMockupGeneratorTasksResponse200Links
+from .create_mockup_generator_tasks_response_400 import CreateMockupGeneratorTasksResponse400
+from .create_mockup_generator_tasks_response_400_error import CreateMockupGeneratorTasksResponse400Error
+from .create_mockup_generator_tasks_response_401 import CreateMockupGeneratorTasksResponse401
+from .create_mockup_generator_tasks_response_401_error import CreateMockupGeneratorTasksResponse401Error
+from .create_mockup_generator_tasks_response_404 import CreateMockupGeneratorTasksResponse404
+from .create_mockup_generator_tasks_response_404_error import CreateMockupGeneratorTasksResponse404Error
+from .create_order_estimation_task_response_200 import CreateOrderEstimationTaskResponse200
+from .create_order_estimation_task_response_200_data import CreateOrderEstimationTaskResponse200Data
+from .create_order_estimation_task_response_400 import CreateOrderEstimationTaskResponse400
+from .create_order_estimation_task_response_400_error import CreateOrderEstimationTaskResponse400Error
+from .create_order_response_200 import CreateOrderResponse200
+from .create_order_response_400 import CreateOrderResponse400
+from .create_order_response_400_error import CreateOrderResponse400Error
+from .create_webhook_event_configuration_response_200 import CreateWebhookEventConfigurationResponse200
+from .create_webhook_event_configuration_response_400 import CreateWebhookEventConfigurationResponse400
+from .create_webhook_event_configuration_response_400_error import CreateWebhookEventConfigurationResponse400Error
+from .create_webhook_event_configuration_response_401 import CreateWebhookEventConfigurationResponse401
+from .create_webhook_event_configuration_response_401_error import CreateWebhookEventConfigurationResponse401Error
+from .create_webhook_response_400 import CreateWebhookResponse400
+from .create_webhook_response_400_error import CreateWebhookResponse400Error
+from .create_webhook_response_401 import CreateWebhookResponse401
+from .create_webhook_response_401_error import CreateWebhookResponse401Error
+from .custom_border_color_option import CustomBorderColorOption
+from .custom_border_color_option_name import CustomBorderColorOptionName
+from .customization import Customization
+from .customization_readonly import CustomizationReadonly
+from .default_event_configuration import DefaultEventConfiguration
+from .delete_item_by_id_response_400 import DeleteItemByIdResponse400
+from .delete_item_by_id_response_400_error import DeleteItemByIdResponse400Error
+from .delete_item_by_id_response_401 import DeleteItemByIdResponse401
+from .delete_item_by_id_response_401_error import DeleteItemByIdResponse401Error
+from .delete_item_by_id_response_403 import DeleteItemByIdResponse403
+from .delete_item_by_id_response_403_error import DeleteItemByIdResponse403Error
+from .delete_item_by_id_response_404 import DeleteItemByIdResponse404
+from .delete_item_by_id_response_404_error import DeleteItemByIdResponse404Error
+from .delete_order_response_401 import DeleteOrderResponse401
+from .delete_order_response_401_error import DeleteOrderResponse401Error
+from .delete_order_response_404 import DeleteOrderResponse404
+from .delete_order_response_404_error import DeleteOrderResponse404Error
+from .delete_order_response_409 import DeleteOrderResponse409
+from .delete_order_response_409_error import DeleteOrderResponse409Error
+from .disable_webhook_event_response_401 import DisableWebhookEventResponse401
+from .disable_webhook_event_response_401_error import DisableWebhookEventResponse401Error
+from .disable_webhook_event_response_404 import DisableWebhookEventResponse404
+from .disable_webhook_event_response_404_error import DisableWebhookEventResponse404Error
+from .disable_webhook_response_401 import DisableWebhookResponse401
+from .disable_webhook_response_401_error import DisableWebhookResponse401Error
+from .disable_webhook_response_404 import DisableWebhookResponse404
+from .disable_webhook_response_404_error import DisableWebhookResponse404Error
+from .error import Error
+from .estimation_address import EstimationAddress
+from .event_configuration import EventConfiguration
+from .event_configuration_event_param import EventConfigurationEventParam
+from .field_3d_puff_option import Field3DPuffOption
+from .field_3d_puff_option_name import Field3DPuffOptionName
+from .file import File
+from .file_role import FileRole
+from .filter_settings_item import FilterSettingsItem
+from .get_approval_sheets_response_200 import GetApprovalSheetsResponse200
+from .get_approval_sheets_response_200_approval_sheet_links import GetApprovalSheetsResponse200ApprovalSheetLinks
+from .get_approval_sheets_response_401 import GetApprovalSheetsResponse401
+from .get_approval_sheets_response_401_error import GetApprovalSheetsResponse401Error
+from .get_categories_by_product_id_response_200 import GetCategoriesByProductIdResponse200
+from .get_categories_by_product_id_response_200_links import GetCategoriesByProductIdResponse200Links
+from .get_categories_by_product_id_response_401 import GetCategoriesByProductIdResponse401
+from .get_categories_by_product_id_response_401_error import GetCategoriesByProductIdResponse401Error
+from .get_categories_by_product_id_selling_region_name import GetCategoriesByProductIdSellingRegionName
+from .get_categories_response_200 import GetCategoriesResponse200
+from .get_categories_response_200_links import GetCategoriesResponse200Links
+from .get_categories_response_401 import GetCategoriesResponse401
+from .get_categories_response_401_error import GetCategoriesResponse401Error
+from .get_category_by_id_response_200 import GetCategoryByIdResponse200
+from .get_category_by_id_response_200_links import GetCategoryByIdResponse200Links
+from .get_category_by_id_response_401 import GetCategoryByIdResponse401
+from .get_category_by_id_response_401_error import GetCategoryByIdResponse401Error
+from .get_countries_response_400 import GetCountriesResponse400
+from .get_countries_response_400_error import GetCountriesResponse400Error
+from .get_file_by_id_response_400 import GetFileByIdResponse400
+from .get_file_by_id_response_400_error import GetFileByIdResponse400Error
+from .get_file_by_id_response_404 import GetFileByIdResponse404
+from .get_file_by_id_response_404_error import GetFileByIdResponse404Error
+from .get_invoice_by_order_id_response_200 import GetInvoiceByOrderIdResponse200
+from .get_invoice_by_order_id_response_200_data import GetInvoiceByOrderIdResponse200Data
+from .get_invoice_by_order_id_response_200_data_links import GetInvoiceByOrderIdResponse200DataLinks
+from .get_invoice_by_order_id_response_200_data_links_order import GetInvoiceByOrderIdResponse200DataLinksOrder
+from .get_invoice_by_order_id_response_200_data_links_self import GetInvoiceByOrderIdResponse200DataLinksSelf
+from .get_invoice_by_order_id_response_401 import GetInvoiceByOrderIdResponse401
+from .get_invoice_by_order_id_response_401_error import GetInvoiceByOrderIdResponse401Error
+from .get_item_by_id_response_401 import GetItemByIdResponse401
+from .get_item_by_id_response_401_error import GetItemByIdResponse401Error
+from .get_items_by_order_id_response_400 import GetItemsByOrderIdResponse400
+from .get_items_by_order_id_response_400_error import GetItemsByOrderIdResponse400Error
+from .get_items_by_order_id_response_401 import GetItemsByOrderIdResponse401
+from .get_items_by_order_id_response_401_error import GetItemsByOrderIdResponse401Error
+from .get_items_by_order_id_response_403 import GetItemsByOrderIdResponse403
+from .get_items_by_order_id_response_403_error import GetItemsByOrderIdResponse403Error
+from .get_items_by_order_id_response_404 import GetItemsByOrderIdResponse404
+from .get_items_by_order_id_response_404_error import GetItemsByOrderIdResponse404Error
+from .get_mockup_generator_tasks_response_200 import GetMockupGeneratorTasksResponse200
+from .get_mockup_generator_tasks_response_200_links import GetMockupGeneratorTasksResponse200Links
+from .get_mockup_generator_tasks_response_400 import GetMockupGeneratorTasksResponse400
+from .get_mockup_generator_tasks_response_400_error import GetMockupGeneratorTasksResponse400Error
+from .get_mockup_generator_tasks_response_401 import GetMockupGeneratorTasksResponse401
+from .get_mockup_generator_tasks_response_401_error import GetMockupGeneratorTasksResponse401Error
+from .get_mockup_generator_tasks_response_404 import GetMockupGeneratorTasksResponse404
+from .get_mockup_generator_tasks_response_404_error import GetMockupGeneratorTasksResponse404Error
+from .get_mockup_templates_by_product_id_response_200 import GetMockupTemplatesByProductIdResponse200
+from .get_mockup_templates_by_product_id_response_200_links import GetMockupTemplatesByProductIdResponse200Links
+from .get_mockup_templates_by_product_id_response_401 import GetMockupTemplatesByProductIdResponse401
+from .get_mockup_templates_by_product_id_response_401_error import GetMockupTemplatesByProductIdResponse401Error
+from .get_mockup_templates_by_product_id_selling_region_name import GetMockupTemplatesByProductIdSellingRegionName
+from .get_o_auth_scopes_response_200 import GetOAuthScopesResponse200
+from .get_o_auth_scopes_response_200_links import GetOAuthScopesResponse200Links
+from .get_o_auth_scopes_response_401 import GetOAuthScopesResponse401
+from .get_o_auth_scopes_response_401_error import GetOAuthScopesResponse401Error
+from .get_order_estimation_task_response_200 import GetOrderEstimationTaskResponse200
+from .get_order_estimation_task_response_200_data import GetOrderEstimationTaskResponse200Data
+from .get_order_estimation_task_response_401 import GetOrderEstimationTaskResponse401
+from .get_order_estimation_task_response_401_error import GetOrderEstimationTaskResponse401Error
+from .get_order_estimation_task_response_404 import GetOrderEstimationTaskResponse404
+from .get_order_estimation_task_response_404_error import GetOrderEstimationTaskResponse404Error
+from .get_order_response_200 import GetOrderResponse200
+from .get_order_response_401 import GetOrderResponse401
+from .get_order_response_401_error import GetOrderResponse401Error
+from .get_order_response_404 import GetOrderResponse404
+from .get_order_response_404_error import GetOrderResponse404Error
+from .get_orders_response_200 import GetOrdersResponse200
+from .get_orders_response_200_links import GetOrdersResponse200Links
+from .get_orders_response_401 import GetOrdersResponse401
+from .get_orders_response_401_error import GetOrdersResponse401Error
+from .get_product_by_id_response_401 import GetProductByIdResponse401
+from .get_product_by_id_response_401_error import GetProductByIdResponse401Error
+from .get_product_by_id_selling_region_name import GetProductByIdSellingRegionName
+from .get_product_images_by_id_response_200 import GetProductImagesByIdResponse200
+from .get_product_images_by_id_response_200_links import GetProductImagesByIdResponse200Links
+from .get_product_images_by_id_response_200_links_product_details import (
+    GetProductImagesByIdResponse200LinksProductDetails,
+)
+from .get_product_images_by_id_response_401 import GetProductImagesByIdResponse401
+from .get_product_images_by_id_response_401_error import GetProductImagesByIdResponse401Error
+from .get_product_prices_by_id_response_404 import GetProductPricesByIdResponse404
+from .get_product_prices_by_id_response_404_error import GetProductPricesByIdResponse404Error
+from .get_product_shipping_countries_by_id_response_200 import GetProductShippingCountriesByIdResponse200
+from .get_product_shipping_countries_by_id_response_401 import GetProductShippingCountriesByIdResponse401
+from .get_product_shipping_countries_by_id_response_401_error import GetProductShippingCountriesByIdResponse401Error
+from .get_product_size_guide_by_id_response_200 import GetProductSizeGuideByIdResponse200
+from .get_product_size_guide_by_id_response_200_links import GetProductSizeGuideByIdResponse200Links
+from .get_product_size_guide_by_id_response_404 import GetProductSizeGuideByIdResponse404
+from .get_product_size_guide_by_id_response_404_error import GetProductSizeGuideByIdResponse404Error
+from .get_product_stock_availability_by_id_response_400 import GetProductStockAvailabilityByIdResponse400
+from .get_product_stock_availability_by_id_response_400_error import GetProductStockAvailabilityByIdResponse400Error
+from .get_product_stock_availability_by_id_response_401 import GetProductStockAvailabilityByIdResponse401
+from .get_product_stock_availability_by_id_response_401_error import GetProductStockAvailabilityByIdResponse401Error
+from .get_product_stock_availability_by_id_response_403 import GetProductStockAvailabilityByIdResponse403
+from .get_product_stock_availability_by_id_response_403_error import GetProductStockAvailabilityByIdResponse403Error
+from .get_product_stock_availability_by_id_response_404 import GetProductStockAvailabilityByIdResponse404
+from .get_product_stock_availability_by_id_response_404_error import GetProductStockAvailabilityByIdResponse404Error
+from .get_product_stock_availability_by_id_selling_region_name import GetProductStockAvailabilityByIdSellingRegionName
+from .get_product_variants_by_id_response_200 import GetProductVariantsByIdResponse200
+from .get_product_variants_by_id_response_200_links import GetProductVariantsByIdResponse200Links
+from .get_product_variants_by_id_response_401 import GetProductVariantsByIdResponse401
+from .get_product_variants_by_id_response_401_error import GetProductVariantsByIdResponse401Error
+from .get_products_response_401 import GetProductsResponse401
+from .get_products_response_401_error import GetProductsResponse401Error
+from .get_products_selling_region_name import GetProductsSellingRegionName
+from .get_products_sort_direction import GetProductsSortDirection
+from .get_products_sort_type import GetProductsSortType
+from .get_reports_report_types import GetReportsReportTypes
+from .get_reports_response_200 import GetReportsResponse200
+from .get_reports_response_400 import GetReportsResponse400
+from .get_reports_response_400_error import GetReportsResponse400Error
+from .get_reports_response_401 import GetReportsResponse401
+from .get_reports_response_401_error import GetReportsResponse401Error
+from .get_reports_response_404 import GetReportsResponse404
+from .get_reports_response_404_error import GetReportsResponse404Error
+from .get_shipments_response_200 import GetShipmentsResponse200
+from .get_shipments_response_200_links import GetShipmentsResponse200Links
+from .get_shipments_response_200_links_first import GetShipmentsResponse200LinksFirst
+from .get_shipments_response_200_links_last import GetShipmentsResponse200LinksLast
+from .get_shipments_response_200_links_next import GetShipmentsResponse200LinksNext
+from .get_shipments_response_200_links_previous import GetShipmentsResponse200LinksPrevious
+from .get_shipments_response_200_links_self import GetShipmentsResponse200LinksSelf
+from .get_shipments_response_401 import GetShipmentsResponse401
+from .get_shipments_response_401_error import GetShipmentsResponse401Error
+from .get_store_by_id_response_200 import GetStoreByIdResponse200
+from .get_store_by_id_response_401 import GetStoreByIdResponse401
+from .get_store_by_id_response_401_error import GetStoreByIdResponse401Error
+from .get_store_by_id_response_404 import GetStoreByIdResponse404
+from .get_store_by_id_response_404_error import GetStoreByIdResponse404Error
+from .get_stores_response_200 import GetStoresResponse200
+from .get_stores_response_200_links import GetStoresResponse200Links
+from .get_stores_response_200_links_first import GetStoresResponse200LinksFirst
+from .get_stores_response_200_links_last import GetStoresResponse200LinksLast
+from .get_stores_response_200_links_next import GetStoresResponse200LinksNext
+from .get_stores_response_200_links_previous import GetStoresResponse200LinksPrevious
+from .get_stores_response_200_links_self import GetStoresResponse200LinksSelf
+from .get_stores_response_401 import GetStoresResponse401
+from .get_stores_response_401_error import GetStoresResponse401Error
+from .get_stores_response_404 import GetStoresResponse404
+from .get_stores_response_404_error import GetStoresResponse404Error
+from .get_variant_by_id_response_200 import GetVariantByIdResponse200
+from .get_variant_by_id_response_200_links import GetVariantByIdResponse200Links
+from .get_variant_by_id_response_401 import GetVariantByIdResponse401
+from .get_variant_by_id_response_401_error import GetVariantByIdResponse401Error
+from .get_variant_images_by_id_response_200 import GetVariantImagesByIdResponse200
+from .get_variant_images_by_id_response_200_links import GetVariantImagesByIdResponse200Links
+from .get_variant_images_by_id_response_200_links_self import GetVariantImagesByIdResponse200LinksSelf
+from .get_variant_images_by_id_response_200_links_variant_details import (
+    GetVariantImagesByIdResponse200LinksVariantDetails,
+)
+from .get_variant_images_by_id_response_401 import GetVariantImagesByIdResponse401
+from .get_variant_images_by_id_response_401_error import GetVariantImagesByIdResponse401Error
+from .get_variant_prices_by_id_response_404 import GetVariantPricesByIdResponse404
+from .get_variant_prices_by_id_response_404_error import GetVariantPricesByIdResponse404Error
+from .get_variant_stock_availability_by_id_response_400 import GetVariantStockAvailabilityByIdResponse400
+from .get_variant_stock_availability_by_id_response_400_error import GetVariantStockAvailabilityByIdResponse400Error
+from .get_variant_stock_availability_by_id_response_401 import GetVariantStockAvailabilityByIdResponse401
+from .get_variant_stock_availability_by_id_response_401_error import GetVariantStockAvailabilityByIdResponse401Error
+from .get_variant_stock_availability_by_id_response_403 import GetVariantStockAvailabilityByIdResponse403
+from .get_variant_stock_availability_by_id_response_403_error import GetVariantStockAvailabilityByIdResponse403Error
+from .get_variant_stock_availability_by_id_response_404 import GetVariantStockAvailabilityByIdResponse404
+from .get_variant_stock_availability_by_id_response_404_error import GetVariantStockAvailabilityByIdResponse404Error
+from .get_variant_stock_availability_by_id_selling_region_name import GetVariantStockAvailabilityByIdSellingRegionName
+from .get_warehouse_product_by_id_response_200 import GetWarehouseProductByIdResponse200
+from .get_warehouse_product_by_id_response_200_data import GetWarehouseProductByIdResponse200Data
+from .get_warehouse_product_by_id_response_200_data_links import GetWarehouseProductByIdResponse200DataLinks
+from .get_warehouse_product_by_id_response_200_data_status import GetWarehouseProductByIdResponse200DataStatus
+from .get_warehouse_product_by_id_response_200_data_warehouse_variants_item import (
+    GetWarehouseProductByIdResponse200DataWarehouseVariantsItem,
+)
+from .get_warehouse_product_by_id_response_200_data_warehouse_variants_item_dimensions import (
+    GetWarehouseProductByIdResponse200DataWarehouseVariantsItemDimensions,
+)
+from .get_warehouse_product_by_id_response_200_data_warehouse_variants_item_dimensions_measurement_system import (
+    GetWarehouseProductByIdResponse200DataWarehouseVariantsItemDimensionsMeasurementSystem,
+)
+from .get_warehouse_product_by_id_response_200_data_warehouse_variants_item_links import (
+    GetWarehouseProductByIdResponse200DataWarehouseVariantsItemLinks,
+)
+from .get_warehouse_product_by_id_response_200_data_warehouse_variants_item_stock_location_item import (
+    GetWarehouseProductByIdResponse200DataWarehouseVariantsItemStockLocationItem,
+)
+from .get_warehouse_product_by_id_response_401 import GetWarehouseProductByIdResponse401
+from .get_warehouse_product_by_id_response_401_error import GetWarehouseProductByIdResponse401Error
+from .get_warehouse_product_by_id_response_404 import GetWarehouseProductByIdResponse404
+from .get_warehouse_product_by_id_response_404_error import GetWarehouseProductByIdResponse404Error
+from .get_warehouse_products_response_200 import GetWarehouseProductsResponse200
+from .get_warehouse_products_response_200_data_item import GetWarehouseProductsResponse200DataItem
+from .get_warehouse_products_response_200_data_item_links import GetWarehouseProductsResponse200DataItemLinks
+from .get_warehouse_products_response_200_data_item_status import GetWarehouseProductsResponse200DataItemStatus
+from .get_warehouse_products_response_200_data_item_warehouse_variants_item import (
+    GetWarehouseProductsResponse200DataItemWarehouseVariantsItem,
+)
+from .get_warehouse_products_response_200_data_item_warehouse_variants_item_dimensions import (
+    GetWarehouseProductsResponse200DataItemWarehouseVariantsItemDimensions,
+)
+from .get_warehouse_products_response_200_data_item_warehouse_variants_item_dimensions_measurement_system import (
+    GetWarehouseProductsResponse200DataItemWarehouseVariantsItemDimensionsMeasurementSystem,
+)
+from .get_warehouse_products_response_200_data_item_warehouse_variants_item_links import (
+    GetWarehouseProductsResponse200DataItemWarehouseVariantsItemLinks,
+)
+from .get_warehouse_products_response_200_links import GetWarehouseProductsResponse200Links
+from .get_warehouse_products_response_401 import GetWarehouseProductsResponse401
+from .get_warehouse_products_response_401_error import GetWarehouseProductsResponse401Error
+from .get_webhook_event_configuration_response_200 import GetWebhookEventConfigurationResponse200
+from .get_webhook_event_configuration_response_401 import GetWebhookEventConfigurationResponse401
+from .get_webhook_event_configuration_response_401_error import GetWebhookEventConfigurationResponse401Error
+from .get_webhooks_response_200 import GetWebhooksResponse200
+from .get_webhooks_response_401 import GetWebhooksResponse401
+from .get_webhooks_response_401_error import GetWebhooksResponse401Error
+from .gift import Gift
+from .hateoas_link import HateoasLink
+from .header_source import HeaderSource
+from .inside_label_type_option import InsideLabelTypeOption
+from .inside_label_type_option_name import InsideLabelTypeOptionName
+from .inside_label_type_option_value import InsideLabelTypeOptionValue
+from .inside_pocket_option import InsidePocketOption
+from .inside_pocket_option_name import InsidePocketOptionName
+from .item_orientation import ItemOrientation
+from .knitwear_base_color_option import KnitwearBaseColorOption
+from .knitwear_base_color_option_name import KnitwearBaseColorOptionName
+from .knitwear_color_reduction_mode import KnitwearColorReductionMode
+from .knitwear_color_reduction_mode_name import KnitwearColorReductionModeName
+from .knitwear_color_reduction_mode_value import KnitwearColorReductionModeValue
+from .knitwear_option_value import KnitwearOptionValue
+from .knitwear_trim_color_option import KnitwearTrimColorOption
+from .knitwear_trim_color_option_name import KnitwearTrimColorOptionName
+from .knitwear_yarn_colors_option import KnitwearYarnColorsOption
+from .knitwear_yarn_colors_option_name import KnitwearYarnColorsOptionName
+from .layer_position import LayerPosition
+from .lifelike_option import LifelikeOption
+from .lifelike_option_name import LifelikeOptionName
+from .measurement import Measurement
+from .measurement_value import MeasurementValue
+from .mockup import Mockup
+from .mockup_generator_task import MockupGeneratorTask
+from .mockup_generator_task_catalog_variant_mockups_item import MockupGeneratorTaskCatalogVariantMockupsItem
+from .mockup_generator_task_links import MockupGeneratorTaskLinks
+from .mockup_generator_task_status import MockupGeneratorTaskStatus
+from .mockup_task_creation import MockupTaskCreation
+from .mockup_task_creation_format import MockupTaskCreationFormat
+from .mockup_templates import MockupTemplates
+from .mockup_templates_orientation import MockupTemplatesOrientation
+from .mockup_templates_role import MockupTemplatesRole
+from .mockup_templates_template_positioning import MockupTemplatesTemplatePositioning
+from .mockup_templates_template_type import MockupTemplatesTemplateType
+from .notes_option import NotesOption
+from .notes_option_name import NotesOptionName
+from .o_auth_scope import OAuthScope
+from .o_auth_scope_name import OAuthScopeName
+from .o_auth_scope_value import OAuthScopeValue
+from .order import Order
+from .order_estimation_task_summary import OrderEstimationTaskSummary
+from .order_estimation_task_summary_costs import OrderEstimationTaskSummaryCosts
+from .order_estimation_task_summary_retail_costs import OrderEstimationTaskSummaryRetailCosts
+from .order_estimation_task_summary_status import OrderEstimationTaskSummaryStatus
+from .order_links import OrderLinks
+from .order_summary import OrderSummary
+from .order_summary_links import OrderSummaryLinks
+from .packing_slip import PackingSlip
+from .packing_slip_readonly import PackingSlipReadonly
+from .paging import Paging
+from .parameter_source import ParameterSource
+from .pointer_source import PointerSource
+from .printful_costs import PrintfulCosts
+from .problem_details import ProblemDetails
+from .product_data import ProductData
+from .product_links import ProductLinks
+from .product_size_guide import ProductSizeGuide
+from .products_param import ProductsParam
+from .products_param_name import ProductsParamName
+from .profit import Profit
+from .response_200 import Response200
+from .retail_costs import RetailCosts
+from .retail_costs_2 import RetailCosts2
+from .retrieve_mockup_styles_by_product_id_response_401 import RetrieveMockupStylesByProductIdResponse401
+from .retrieve_mockup_styles_by_product_id_response_401_error import RetrieveMockupStylesByProductIdResponse401Error
+from .retrieve_mockup_styles_by_product_id_response_404 import RetrieveMockupStylesByProductIdResponse404
+from .retrieve_mockup_styles_by_product_id_response_404_error import RetrieveMockupStylesByProductIdResponse404Error
+from .retrieve_mockup_styles_by_product_id_selling_region_name import RetrieveMockupStylesByProductIdSellingRegionName
+from .sales_and_costs_item import SalesAndCostsItem
+from .sales_and_costs_summary_item import SalesAndCostsSummaryItem
+from .selling_region_stock_availability import SellingRegionStockAvailability
+from .selling_region_stock_availability_availability import SellingRegionStockAvailabilityAvailability
+from .selling_region_stock_availability_name import SellingRegionStockAvailabilityName
+from .selling_region_stock_availability_placement_option_availability_item import (
+    SellingRegionStockAvailabilityPlacementOptionAvailabilityItem,
+)
+from .server_error_details import ServerErrorDetails
+from .shipment import Shipment
+from .shipment_delivery_status import ShipmentDeliveryStatus
+from .shipment_departure_address import ShipmentDepartureAddress
+from .shipment_estimated_delivery_type_0 import ShipmentEstimatedDeliveryType0
+from .shipment_item import ShipmentItem
+from .shipment_item_links import ShipmentItemLinks
+from .shipment_item_links_order_item import ShipmentItemLinksOrderItem
+from .shipment_links import ShipmentLinks
+from .shipment_links_order import ShipmentLinksOrder
+from .shipment_links_self import ShipmentLinksSelf
+from .shipment_shipment_status import ShipmentShipmentStatus
+from .size_table import SizeTable
+from .size_table_type import SizeTableType
+from .size_table_unit import SizeTableUnit
+from .stitch_color_option import StitchColorOption
+from .stitch_color_option_name import StitchColorOptionName
+from .store_schema import StoreSchema
+from .store_statistics import StoreStatistics
+from .technique import Technique
+from .technique_enum import TechniqueEnum
+from .template_mockup_product import TemplateMockupProduct
+from .thread_colors_option import ThreadColorsOption
+from .thread_colors_option_name import ThreadColorsOptionName
+from .total_paid_orders import TotalPaidOrders
+from .tracking_event import TrackingEvent
+from .unlimited_color_option import UnlimitedColorOption
+from .unlimited_color_option_name import UnlimitedColorOptionName
+from .update_item_response_400 import UpdateItemResponse400
+from .update_item_response_400_error import UpdateItemResponse400Error
+from .update_item_response_401 import UpdateItemResponse401
+from .update_item_response_401_error import UpdateItemResponse401Error
+from .update_item_response_403 import UpdateItemResponse403
+from .update_item_response_403_error import UpdateItemResponse403Error
+from .update_item_response_404 import UpdateItemResponse404
+from .update_item_response_404_error import UpdateItemResponse404Error
+from .update_order_response_200 import UpdateOrderResponse200
+from .update_order_response_400 import UpdateOrderResponse400
+from .update_order_response_400_error import UpdateOrderResponse400Error
+from .variant import Variant
+from .variant_image import VariantImage
+from .variant_images import VariantImages
+from .variant_links import VariantLinks
+from .variant_price_data import VariantPriceData
+from .variant_technique_price import VariantTechniquePrice
+from .warehouse_item_summary import WarehouseItemSummary
+from .warehouse_item_summary_links import WarehouseItemSummaryLinks
+from .warehouse_item_summary_links_self import WarehouseItemSummaryLinksSelf
+from .warehouse_item_summary_source import WarehouseItemSummarySource
+from .warehouse_item_summary_type import WarehouseItemSummaryType
+from .warehouse_shipping_rate_item import WarehouseShippingRateItem
+from .warehouse_shipping_rate_item_source import WarehouseShippingRateItemSource
+from .webhook import Webhook
+from .webhook_info import WebhookInfo
+from .webhook_order_data import WebhookOrderData
+from .webhook_shipment_data import WebhookShipmentData
+
+__all__ = (
+    "AddFileResponse400",
+    "AddFileResponse400Error",
+    "AddFileResponse404",
+    "AddFileResponse404Error",
+    "Address",
+    "AddressReadonly",
+    "ApprovalSheet",
+    "ApprovalSheetApprovalSheetLinks",
+    "ApprovalSheetApprovalSheetLinksOrder",
+    "ApprovalSheetApprovalSheetLinksOrderItem",
+    "ApprovalSheetStatus",
+    "ApprovalSheetWebhookFile",
+    "AverageFulfillmentTime",
+    "BaseMockupProduct",
+    "CalculateShppingRatesResponse400",
+    "CalculateShppingRatesResponse400Error",
+    "CalculationStatus",
+    "CatalogItemSource",
+    "CatalogItemSummary",
+    "CatalogItemSummaryLinks",
+    "CatalogItemSummaryLinksSelf",
+    "CatalogItemSummarySource",
+    "CatalogItemSummaryType",
+    "CatalogStockUpdatedEventConfiguration",
+    "Category",
+    "CategoryLinks",
+    "ConfirmOrderResponse200",
+    "ConfirmOrderResponse200Links",
+    "ConfirmOrderResponse401",
+    "ConfirmOrderResponse401Error",
+    "Costs",
+    "CostsByAmountItem",
+    "CostsByProductItem",
+    "CostsByVariantItem",
+    "Country",
+    "CreateItemByOrderIdResponse400",
+    "CreateItemByOrderIdResponse400Error",
+    "CreateItemByOrderIdResponse401",
+    "CreateItemByOrderIdResponse401Error",
+    "CreateItemByOrderIdResponse403",
+    "CreateItemByOrderIdResponse403Error",
+    "CreateItemByOrderIdResponse404",
+    "CreateItemByOrderIdResponse404Error",
+    "CreateMockupGeneratorTasksResponse200",
+    "CreateMockupGeneratorTasksResponse200Links",
+    "CreateMockupGeneratorTasksResponse400",
+    "CreateMockupGeneratorTasksResponse400Error",
+    "CreateMockupGeneratorTasksResponse401",
+    "CreateMockupGeneratorTasksResponse401Error",
+    "CreateMockupGeneratorTasksResponse404",
+    "CreateMockupGeneratorTasksResponse404Error",
+    "CreateOrderEstimationTaskResponse200",
+    "CreateOrderEstimationTaskResponse200Data",
+    "CreateOrderEstimationTaskResponse400",
+    "CreateOrderEstimationTaskResponse400Error",
+    "CreateOrderResponse200",
+    "CreateOrderResponse400",
+    "CreateOrderResponse400Error",
+    "CreateWebhookEventConfigurationResponse200",
+    "CreateWebhookEventConfigurationResponse400",
+    "CreateWebhookEventConfigurationResponse400Error",
+    "CreateWebhookEventConfigurationResponse401",
+    "CreateWebhookEventConfigurationResponse401Error",
+    "CreateWebhookResponse400",
+    "CreateWebhookResponse400Error",
+    "CreateWebhookResponse401",
+    "CreateWebhookResponse401Error",
+    "CustomBorderColorOption",
+    "CustomBorderColorOptionName",
+    "Customization",
+    "CustomizationReadonly",
+    "DefaultEventConfiguration",
+    "DeleteItemByIdResponse400",
+    "DeleteItemByIdResponse400Error",
+    "DeleteItemByIdResponse401",
+    "DeleteItemByIdResponse401Error",
+    "DeleteItemByIdResponse403",
+    "DeleteItemByIdResponse403Error",
+    "DeleteItemByIdResponse404",
+    "DeleteItemByIdResponse404Error",
+    "DeleteOrderResponse401",
+    "DeleteOrderResponse401Error",
+    "DeleteOrderResponse404",
+    "DeleteOrderResponse404Error",
+    "DeleteOrderResponse409",
+    "DeleteOrderResponse409Error",
+    "DisableWebhookEventResponse401",
+    "DisableWebhookEventResponse401Error",
+    "DisableWebhookEventResponse404",
+    "DisableWebhookEventResponse404Error",
+    "DisableWebhookResponse401",
+    "DisableWebhookResponse401Error",
+    "DisableWebhookResponse404",
+    "DisableWebhookResponse404Error",
+    "Error",
+    "EstimationAddress",
+    "EventConfiguration",
+    "EventConfigurationEventParam",
+    "Field3DPuffOption",
+    "Field3DPuffOptionName",
+    "File",
+    "FileRole",
+    "FilterSettingsItem",
+    "GetApprovalSheetsResponse200",
+    "GetApprovalSheetsResponse200ApprovalSheetLinks",
+    "GetApprovalSheetsResponse401",
+    "GetApprovalSheetsResponse401Error",
+    "GetCategoriesByProductIdResponse200",
+    "GetCategoriesByProductIdResponse200Links",
+    "GetCategoriesByProductIdResponse401",
+    "GetCategoriesByProductIdResponse401Error",
+    "GetCategoriesByProductIdSellingRegionName",
+    "GetCategoriesResponse200",
+    "GetCategoriesResponse200Links",
+    "GetCategoriesResponse401",
+    "GetCategoriesResponse401Error",
+    "GetCategoryByIdResponse200",
+    "GetCategoryByIdResponse200Links",
+    "GetCategoryByIdResponse401",
+    "GetCategoryByIdResponse401Error",
+    "GetCountriesResponse400",
+    "GetCountriesResponse400Error",
+    "GetFileByIdResponse400",
+    "GetFileByIdResponse400Error",
+    "GetFileByIdResponse404",
+    "GetFileByIdResponse404Error",
+    "GetInvoiceByOrderIdResponse200",
+    "GetInvoiceByOrderIdResponse200Data",
+    "GetInvoiceByOrderIdResponse200DataLinks",
+    "GetInvoiceByOrderIdResponse200DataLinksOrder",
+    "GetInvoiceByOrderIdResponse200DataLinksSelf",
+    "GetInvoiceByOrderIdResponse401",
+    "GetInvoiceByOrderIdResponse401Error",
+    "GetItemByIdResponse401",
+    "GetItemByIdResponse401Error",
+    "GetItemsByOrderIdResponse400",
+    "GetItemsByOrderIdResponse400Error",
+    "GetItemsByOrderIdResponse401",
+    "GetItemsByOrderIdResponse401Error",
+    "GetItemsByOrderIdResponse403",
+    "GetItemsByOrderIdResponse403Error",
+    "GetItemsByOrderIdResponse404",
+    "GetItemsByOrderIdResponse404Error",
+    "GetMockupGeneratorTasksResponse200",
+    "GetMockupGeneratorTasksResponse200Links",
+    "GetMockupGeneratorTasksResponse400",
+    "GetMockupGeneratorTasksResponse400Error",
+    "GetMockupGeneratorTasksResponse401",
+    "GetMockupGeneratorTasksResponse401Error",
+    "GetMockupGeneratorTasksResponse404",
+    "GetMockupGeneratorTasksResponse404Error",
+    "GetMockupTemplatesByProductIdResponse200",
+    "GetMockupTemplatesByProductIdResponse200Links",
+    "GetMockupTemplatesByProductIdResponse401",
+    "GetMockupTemplatesByProductIdResponse401Error",
+    "GetMockupTemplatesByProductIdSellingRegionName",
+    "GetOAuthScopesResponse200",
+    "GetOAuthScopesResponse200Links",
+    "GetOAuthScopesResponse401",
+    "GetOAuthScopesResponse401Error",
+    "GetOrderEstimationTaskResponse200",
+    "GetOrderEstimationTaskResponse200Data",
+    "GetOrderEstimationTaskResponse401",
+    "GetOrderEstimationTaskResponse401Error",
+    "GetOrderEstimationTaskResponse404",
+    "GetOrderEstimationTaskResponse404Error",
+    "GetOrderResponse200",
+    "GetOrderResponse401",
+    "GetOrderResponse401Error",
+    "GetOrderResponse404",
+    "GetOrderResponse404Error",
+    "GetOrdersResponse200",
+    "GetOrdersResponse200Links",
+    "GetOrdersResponse401",
+    "GetOrdersResponse401Error",
+    "GetProductByIdResponse401",
+    "GetProductByIdResponse401Error",
+    "GetProductByIdSellingRegionName",
+    "GetProductImagesByIdResponse200",
+    "GetProductImagesByIdResponse200Links",
+    "GetProductImagesByIdResponse200LinksProductDetails",
+    "GetProductImagesByIdResponse401",
+    "GetProductImagesByIdResponse401Error",
+    "GetProductPricesByIdResponse404",
+    "GetProductPricesByIdResponse404Error",
+    "GetProductShippingCountriesByIdResponse200",
+    "GetProductShippingCountriesByIdResponse401",
+    "GetProductShippingCountriesByIdResponse401Error",
+    "GetProductSizeGuideByIdResponse200",
+    "GetProductSizeGuideByIdResponse200Links",
+    "GetProductSizeGuideByIdResponse404",
+    "GetProductSizeGuideByIdResponse404Error",
+    "GetProductsResponse401",
+    "GetProductsResponse401Error",
+    "GetProductsSellingRegionName",
+    "GetProductsSortDirection",
+    "GetProductsSortType",
+    "GetProductStockAvailabilityByIdResponse400",
+    "GetProductStockAvailabilityByIdResponse400Error",
+    "GetProductStockAvailabilityByIdResponse401",
+    "GetProductStockAvailabilityByIdResponse401Error",
+    "GetProductStockAvailabilityByIdResponse403",
+    "GetProductStockAvailabilityByIdResponse403Error",
+    "GetProductStockAvailabilityByIdResponse404",
+    "GetProductStockAvailabilityByIdResponse404Error",
+    "GetProductStockAvailabilityByIdSellingRegionName",
+    "GetProductVariantsByIdResponse200",
+    "GetProductVariantsByIdResponse200Links",
+    "GetProductVariantsByIdResponse401",
+    "GetProductVariantsByIdResponse401Error",
+    "GetReportsReportTypes",
+    "GetReportsResponse200",
+    "GetReportsResponse400",
+    "GetReportsResponse400Error",
+    "GetReportsResponse401",
+    "GetReportsResponse401Error",
+    "GetReportsResponse404",
+    "GetReportsResponse404Error",
+    "GetShipmentsResponse200",
+    "GetShipmentsResponse200Links",
+    "GetShipmentsResponse200LinksFirst",
+    "GetShipmentsResponse200LinksLast",
+    "GetShipmentsResponse200LinksNext",
+    "GetShipmentsResponse200LinksPrevious",
+    "GetShipmentsResponse200LinksSelf",
+    "GetShipmentsResponse401",
+    "GetShipmentsResponse401Error",
+    "GetStoreByIdResponse200",
+    "GetStoreByIdResponse401",
+    "GetStoreByIdResponse401Error",
+    "GetStoreByIdResponse404",
+    "GetStoreByIdResponse404Error",
+    "GetStoresResponse200",
+    "GetStoresResponse200Links",
+    "GetStoresResponse200LinksFirst",
+    "GetStoresResponse200LinksLast",
+    "GetStoresResponse200LinksNext",
+    "GetStoresResponse200LinksPrevious",
+    "GetStoresResponse200LinksSelf",
+    "GetStoresResponse401",
+    "GetStoresResponse401Error",
+    "GetStoresResponse404",
+    "GetStoresResponse404Error",
+    "GetVariantByIdResponse200",
+    "GetVariantByIdResponse200Links",
+    "GetVariantByIdResponse401",
+    "GetVariantByIdResponse401Error",
+    "GetVariantImagesByIdResponse200",
+    "GetVariantImagesByIdResponse200Links",
+    "GetVariantImagesByIdResponse200LinksSelf",
+    "GetVariantImagesByIdResponse200LinksVariantDetails",
+    "GetVariantImagesByIdResponse401",
+    "GetVariantImagesByIdResponse401Error",
+    "GetVariantPricesByIdResponse404",
+    "GetVariantPricesByIdResponse404Error",
+    "GetVariantStockAvailabilityByIdResponse400",
+    "GetVariantStockAvailabilityByIdResponse400Error",
+    "GetVariantStockAvailabilityByIdResponse401",
+    "GetVariantStockAvailabilityByIdResponse401Error",
+    "GetVariantStockAvailabilityByIdResponse403",
+    "GetVariantStockAvailabilityByIdResponse403Error",
+    "GetVariantStockAvailabilityByIdResponse404",
+    "GetVariantStockAvailabilityByIdResponse404Error",
+    "GetVariantStockAvailabilityByIdSellingRegionName",
+    "GetWarehouseProductByIdResponse200",
+    "GetWarehouseProductByIdResponse200Data",
+    "GetWarehouseProductByIdResponse200DataLinks",
+    "GetWarehouseProductByIdResponse200DataStatus",
+    "GetWarehouseProductByIdResponse200DataWarehouseVariantsItem",
+    "GetWarehouseProductByIdResponse200DataWarehouseVariantsItemDimensions",
+    "GetWarehouseProductByIdResponse200DataWarehouseVariantsItemDimensionsMeasurementSystem",
+    "GetWarehouseProductByIdResponse200DataWarehouseVariantsItemLinks",
+    "GetWarehouseProductByIdResponse200DataWarehouseVariantsItemStockLocationItem",
+    "GetWarehouseProductByIdResponse401",
+    "GetWarehouseProductByIdResponse401Error",
+    "GetWarehouseProductByIdResponse404",
+    "GetWarehouseProductByIdResponse404Error",
+    "GetWarehouseProductsResponse200",
+    "GetWarehouseProductsResponse200DataItem",
+    "GetWarehouseProductsResponse200DataItemLinks",
+    "GetWarehouseProductsResponse200DataItemStatus",
+    "GetWarehouseProductsResponse200DataItemWarehouseVariantsItem",
+    "GetWarehouseProductsResponse200DataItemWarehouseVariantsItemDimensions",
+    "GetWarehouseProductsResponse200DataItemWarehouseVariantsItemDimensionsMeasurementSystem",
+    "GetWarehouseProductsResponse200DataItemWarehouseVariantsItemLinks",
+    "GetWarehouseProductsResponse200Links",
+    "GetWarehouseProductsResponse401",
+    "GetWarehouseProductsResponse401Error",
+    "GetWebhookEventConfigurationResponse200",
+    "GetWebhookEventConfigurationResponse401",
+    "GetWebhookEventConfigurationResponse401Error",
+    "GetWebhooksResponse200",
+    "GetWebhooksResponse401",
+    "GetWebhooksResponse401Error",
+    "Gift",
+    "HateoasLink",
+    "HeaderSource",
+    "InsideLabelTypeOption",
+    "InsideLabelTypeOptionName",
+    "InsideLabelTypeOptionValue",
+    "InsidePocketOption",
+    "InsidePocketOptionName",
+    "ItemOrientation",
+    "KnitwearBaseColorOption",
+    "KnitwearBaseColorOptionName",
+    "KnitwearColorReductionMode",
+    "KnitwearColorReductionModeName",
+    "KnitwearColorReductionModeValue",
+    "KnitwearOptionValue",
+    "KnitwearTrimColorOption",
+    "KnitwearTrimColorOptionName",
+    "KnitwearYarnColorsOption",
+    "KnitwearYarnColorsOptionName",
+    "LayerPosition",
+    "LifelikeOption",
+    "LifelikeOptionName",
+    "Measurement",
+    "MeasurementValue",
+    "Mockup",
+    "MockupGeneratorTask",
+    "MockupGeneratorTaskCatalogVariantMockupsItem",
+    "MockupGeneratorTaskLinks",
+    "MockupGeneratorTaskStatus",
+    "MockupTaskCreation",
+    "MockupTaskCreationFormat",
+    "MockupTemplates",
+    "MockupTemplatesOrientation",
+    "MockupTemplatesRole",
+    "MockupTemplatesTemplatePositioning",
+    "MockupTemplatesTemplateType",
+    "NotesOption",
+    "NotesOptionName",
+    "OAuthScope",
+    "OAuthScopeName",
+    "OAuthScopeValue",
+    "Order",
+    "OrderEstimationTaskSummary",
+    "OrderEstimationTaskSummaryCosts",
+    "OrderEstimationTaskSummaryRetailCosts",
+    "OrderEstimationTaskSummaryStatus",
+    "OrderLinks",
+    "OrderSummary",
+    "OrderSummaryLinks",
+    "PackingSlip",
+    "PackingSlipReadonly",
+    "Paging",
+    "ParameterSource",
+    "PointerSource",
+    "PrintfulCosts",
+    "ProblemDetails",
+    "ProductData",
+    "ProductLinks",
+    "ProductSizeGuide",
+    "ProductsParam",
+    "ProductsParamName",
+    "Profit",
+    "Response200",
+    "RetailCosts",
+    "RetailCosts2",
+    "RetrieveMockupStylesByProductIdResponse401",
+    "RetrieveMockupStylesByProductIdResponse401Error",
+    "RetrieveMockupStylesByProductIdResponse404",
+    "RetrieveMockupStylesByProductIdResponse404Error",
+    "RetrieveMockupStylesByProductIdSellingRegionName",
+    "SalesAndCostsItem",
+    "SalesAndCostsSummaryItem",
+    "SellingRegionStockAvailability",
+    "SellingRegionStockAvailabilityAvailability",
+    "SellingRegionStockAvailabilityName",
+    "SellingRegionStockAvailabilityPlacementOptionAvailabilityItem",
+    "ServerErrorDetails",
+    "Shipment",
+    "ShipmentDeliveryStatus",
+    "ShipmentDepartureAddress",
+    "ShipmentEstimatedDeliveryType0",
+    "ShipmentItem",
+    "ShipmentItemLinks",
+    "ShipmentItemLinksOrderItem",
+    "ShipmentLinks",
+    "ShipmentLinksOrder",
+    "ShipmentLinksSelf",
+    "ShipmentShipmentStatus",
+    "SizeTable",
+    "SizeTableType",
+    "SizeTableUnit",
+    "StitchColorOption",
+    "StitchColorOptionName",
+    "StoreSchema",
+    "StoreStatistics",
+    "Technique",
+    "TechniqueEnum",
+    "TemplateMockupProduct",
+    "ThreadColorsOption",
+    "ThreadColorsOptionName",
+    "TotalPaidOrders",
+    "TrackingEvent",
+    "UnlimitedColorOption",
+    "UnlimitedColorOptionName",
+    "UpdateItemResponse400",
+    "UpdateItemResponse400Error",
+    "UpdateItemResponse401",
+    "UpdateItemResponse401Error",
+    "UpdateItemResponse403",
+    "UpdateItemResponse403Error",
+    "UpdateItemResponse404",
+    "UpdateItemResponse404Error",
+    "UpdateOrderResponse200",
+    "UpdateOrderResponse400",
+    "UpdateOrderResponse400Error",
+    "Variant",
+    "VariantImage",
+    "VariantImages",
+    "VariantLinks",
+    "VariantPriceData",
+    "VariantTechniquePrice",
+    "WarehouseItemSummary",
+    "WarehouseItemSummaryLinks",
+    "WarehouseItemSummaryLinksSelf",
+    "WarehouseItemSummarySource",
+    "WarehouseItemSummaryType",
+    "WarehouseShippingRateItem",
+    "WarehouseShippingRateItemSource",
+    "Webhook",
+    "WebhookInfo",
+    "WebhookOrderData",
+    "WebhookShipmentData",
+)

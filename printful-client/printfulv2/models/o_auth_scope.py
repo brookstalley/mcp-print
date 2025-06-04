@@ -1,0 +1,71 @@
+from collections.abc import Mapping
+from typing import Any, TypeVar
+
+from attrs import define as _attrs_define
+from attrs import field as _attrs_field
+
+from ..models.o_auth_scope_name import OAuthScopeName
+from ..models.o_auth_scope_value import OAuthScopeValue
+
+T = TypeVar("T", bound="OAuthScope")
+
+
+@_attrs_define
+class OAuthScope:
+    """Information about the OAuth scope
+
+    Attributes:
+        name (OAuthScopeName): Display name of the scope Example: View all orders.
+        value (OAuthScopeValue): The scope value Example: orders/read.
+    """
+
+    name: OAuthScopeName
+    value: OAuthScopeValue
+    additional_properties: dict[str, Any] = _attrs_field(init=False, factory=dict)
+
+    def to_dict(self) -> dict[str, Any]:
+        name = self.name.value
+
+        value = self.value.value
+
+        field_dict: dict[str, Any] = {}
+        field_dict.update(self.additional_properties)
+        field_dict.update(
+            {
+                "name": name,
+                "value": value,
+            }
+        )
+
+        return field_dict
+
+    @classmethod
+    def from_dict(cls: type[T], src_dict: Mapping[str, Any]) -> T:
+        d = dict(src_dict)
+        name = OAuthScopeName(d.pop("name"))
+
+        value = OAuthScopeValue(d.pop("value"))
+
+        o_auth_scope = cls(
+            name=name,
+            value=value,
+        )
+
+        o_auth_scope.additional_properties = d
+        return o_auth_scope
+
+    @property
+    def additional_keys(self) -> list[str]:
+        return list(self.additional_properties.keys())
+
+    def __getitem__(self, key: str) -> Any:
+        return self.additional_properties[key]
+
+    def __setitem__(self, key: str, value: Any) -> None:
+        self.additional_properties[key] = value
+
+    def __delitem__(self, key: str) -> None:
+        del self.additional_properties[key]
+
+    def __contains__(self, key: str) -> bool:
+        return key in self.additional_properties

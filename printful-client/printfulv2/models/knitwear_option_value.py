@@ -1,0 +1,43 @@
+from enum import Enum
+
+
+class KnitwearOptionValue(str, Enum):
+    VALUE_0 = "#090909"
+    VALUE_1 = "#404040"
+    VALUE_10 = "#c6b5a7"
+    VALUE_11 = "#d6c6b4"
+    VALUE_12 = "#dcd3cc"
+    VALUE_13 = "#edd9d9"
+    VALUE_14 = "#e2dfdc"
+    VALUE_15 = "#fdfafa"
+    VALUE_16 = "#999996"
+    VALUE_17 = "#dda032"
+    VALUE_18 = "#d1c6ae"
+    VALUE_19 = "#eddea4"
+    VALUE_2 = "#563c33"
+    VALUE_20 = "#48542e"
+    VALUE_21 = "#6e8c4b"
+    VALUE_22 = "#c0c1bd"
+    VALUE_23 = "#243f33"
+    VALUE_24 = "#c5d1d0"
+    VALUE_25 = "#175387"
+    VALUE_26 = "#237d96"
+    VALUE_27 = "#787979"
+    VALUE_28 = "#343d55"
+    VALUE_29 = "#4e59be"
+    VALUE_3 = "#d52213"
+    VALUE_30 = "#566e99"
+    VALUE_31 = "#504372"
+    VALUE_32 = "#4c1c29"
+    VALUE_33 = "#f66274"
+    VALUE_34 = "#eda6b4"
+    VALUE_35 = "#ddabc8"
+    VALUE_4 = "#6e5242"
+    VALUE_5 = "#7f6a53"
+    VALUE_6 = "#cd5e38"
+    VALUE_7 = "#b57648"
+    VALUE_8 = "#d1773b"
+    VALUE_9 = "#d68785"
+
+    def __str__(self) -> str:
+        return str(self.value)

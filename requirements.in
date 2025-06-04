@@ -1,0 +1,6 @@
+fastapi
+fastmcp
+httpx
+sse-starlette
+openapi-python-client
+python-dotenv
