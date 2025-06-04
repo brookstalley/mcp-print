@@ -168,7 +168,7 @@ async def auth_guard(request: Request, call_next):
     logger.info(f"Client token: {client_token}")   
     
     print(f"Client token: {client_token}") 
-    if request.headers.get("authorization", "") not in _BEARER_TOKENS:
+    if client_token not in _BEARER_TOKENS:
         return PlainTextResponse(f"invalid bearer token {client_token}", status_code=401)
     return await call_next(request)
 
