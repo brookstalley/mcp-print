@@ -2,12 +2,6 @@
 """
 Printful-to-MCP bridge (SSE transport).
 
-Build step (Dockerfile example):
-  RUN openapi-python-client update \
-        --url https://developers.printful.com/openapi.json \
-        --path ./printful_client \
-     && pip install -r requirements.txt
-
 Required env vars:
   PRINTFUL_API_KEY   - API key from https://developers.printful.com
   AUTH_TOKEN         - Bearer token clients must present
