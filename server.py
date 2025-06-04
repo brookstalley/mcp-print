@@ -32,6 +32,16 @@ from sse_starlette import ServerSentEvent as SseEvent           # ≥ v2 API
 import printfulv2                                               # installed package
 from printfulv2 import AuthenticatedClient
 
+import logging
+
+# ──────────────── Utilities ────────────────────────────
+def bearer_token_from_header(header: str) -> str:
+    """Extract the bearer token from an Authorization header."""
+    print(f"Authorization header: {header}")
+    if not header.startswith("Bearer "):
+        return header.strip()
+    return header.removeprefix("Bearer ").strip()
+
 # ──────────────── per‑client policy store ─────────────────────
 class ClientPolicy(TypedDict):
     id: int
@@ -60,8 +70,8 @@ _CLIENTS: Dict[str, ClientPolicy] = {
     }
 }
 
-_BEARER_TOKENS = {f"Bearer {tok}" for tok in _CLIENTS}  # for quick lookup
-
+_BEARER_TOKENS = {tok for tok in _CLIENTS}  # for quick lookup
+print(f"Bearer tokens: {_BEARER_TOKENS}")
 # Map Printful operationIds → permission flags
 _OP_PERM: Dict[str, Literal[
     "create_draft_order", "place_order", "cancel_order"
@@ -75,8 +85,11 @@ _OP_PERM: Dict[str, Literal[
 def get_client(request: Request,
                Authorization: str = Header(...)) -> ClientPolicy:  # noqa: D401
     token = Authorization.removeprefix("Bearer ").strip()
+    logger = logging.getLogger(__name__)
+    logger.info(f"Client token: {token}")
     client = _CLIENTS.get(token)
     if not client:
+        print(f"Invalid client token: {token}")
         raise HTTPException(status.HTTP_401_UNAUTHORIZED,
                             "invalid bearer token 🦛")
 
@@ -150,8 +163,13 @@ app: FastAPI = mcp.http_app(transport="sse")   # FastMCP ≥ 2.3.2
 @app.middleware("http")
 async def auth_guard(request: Request, call_next):
     """Return 401 without crashing when bearer token is invalid."""
+    client_token = bearer_token_from_header(request.headers.get("authorization", ""))
+    logger = logging.getLogger()
+    logger.info(f"Client token: {client_token}")   
+    
+    print(f"Client token: {client_token}") 
     if request.headers.get("authorization", "") not in _BEARER_TOKENS:
-        return PlainTextResponse("invalid bearer token 🦛", status_code=401)
+        return PlainTextResponse(f"invalid bearer token {client_token}", status_code=401)
     return await call_next(request)
 
 # ─────────────── run via uvicorn ─────────────────────────────
