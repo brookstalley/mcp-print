@@ -20,7 +20,7 @@ from typing import Any, Callable, Dict
 
 from fastapi import Depends, Header, HTTPException, status
 from fastmcp import FastMCP
-from sse_starlette.sse import SseEvent  # noqa: F401 (import keeps pip resolver happy)
+from sse_starlette import ServerSentEvent as SseEvent
 from printfulv2 import AsyncClient, AuthenticatedClient
 
 # ─────────────────────────  Security ──────────────────────────
